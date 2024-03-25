@@ -30,8 +30,7 @@ for file_in in sorted(glob.iglob(root_dir + '/**/*.*', recursive=True)):
 		
 	print('⚡️ Procesing ', file_in)
 	 
-	file_out = file_in.replace('.', '__.')
-	file_out = file_out.split('.')[0] + '.mp4'
+	file_out = file_in.rsplit('.',1)[0] + '_.mp4'
 	
 	cmd = f"HandBrakeCli --preset-import-file '{preset_file}' -Z '{preset_name}' -i '{file_in}' -o '{file_out}'"
 	#print(cmd)
